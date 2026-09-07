@@ -26,13 +26,13 @@ document.getElementById('cep').addEventListener('blur', function() {
     }
 });
 
-// Ação de Envio e Redirecionamento para o Link de Pagamento Externo
+// Ação ao clicar no botão: Salva os dados e redireciona para o link gerado no App BB
 document.getElementById('checkout-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
     const nome = document.getElementById('nome').value;
-    alert(`Tudo certo, ${nome}! Redirecionando para o ambiente de pagamento...`);
+    alert(`Tudo certo, ${nome}! Redirecionando para o ambiente seguro do Banco do Brasil...`);
 
-    // COLOQUE O SEU LINK DE PAGAMENTO REAL ABAIXO ENTRE AS ASPAS:
-    window.location.href = "https://seu-link-de-pagamento-aqui.com";
+    // COLE AQUI O LINK DO SEU BB PAY QUE VOCÊ GEROU NO APP DO BANCO DO BRASIL:
+    window.location.href = "https://cole-o-seu-link-do-bb-pay-aqui.com";
 });
