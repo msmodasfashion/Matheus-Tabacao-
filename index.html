@@ -165,7 +165,7 @@
         </div>
     </section>
 
-    <!-- Seção: Checkout Integrado com CEP Automático e Pix -->
+    <!-- Seção: Checkout com Pagamento Pix Externo/Simulado -->
     <section id="checkout" class="section-container checkout-section">
         <div class="section-title">
             <h2><i class="fa-solid fa-qrcode"></i> Finalizar Pedido & Pagamento Pix</h2>
@@ -179,20 +179,14 @@
                 <p id="product-price">R$ 11,00</p>
             </div>
 
+            <!-- Formulário de Dados -->
             <form id="checkout-form">
-                <h3>Dados Pessoais</h3>
+                <h3>Dados Pessoais & Entrega</h3>
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
-                </div>
-
-                <h3>Endereço de Entrega</h3>
-                
                 <div class="form-group">
                     <label for="cep">CEP</label>
                     <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
@@ -203,19 +197,30 @@
                     <input type="text" id="endereco" placeholder="Ex: Rua Sebastião Tavares de Lima, 123" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="cidade">Cidade / Estado</label>
-                    <input type="text" id="cidade" value="Guaratinguetá - SP" required>
-                </div>
-
-                <div class="pix-box-info">
-                    <p class="pix-title">Chave Pix Oficial (Telefone):</p>
-                    <div class="pix-key-display">+55 (12) 99136-2201</div>
-                    <p class="pix-owner">Favorecido: <strong>Matheus Tabacão</strong></p>
-                </div>
-
-                <button type="submit" class="btn-pay"><i class="fa-brands fa-whatsapp"></i> Finalizar e Enviar Pedido no Zap</button>
+                <button type="button" onclick="gerarPagamentoPix()" class="btn-pay"><i class="fa-solid fa-qrcode"></i> Gerar Pix de Pagamento</button>
             </form>
+
+            <!-- Área do Pix Gerado (Falso / Simulado) -->
+            <div id="pix-gateway-area" class="pix-gateway-hidden">
+                <div class="pix-gateway-box">
+                    <h4>Escaneie o QR Code ou Copie o Pix</h4>
+                    <div class="qrcode-wrapper">
+                        <img id="qrcode-img" src="" alt="QR Code Pix">
+                    </div>
+                    <p class="pix-timer">⏱️ O Pix expira em <span id="timer">10:00</span></p>
+                    
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Pix Copia e Cola:</label>
+                        <input type="text" id="pix-copia-cola" readonly value="">
+                    </div>
+
+                    <button type="button" onclick="copiarPixFake()" class="btn-copy" id="btnCopyFake"><i class="fa-solid fa-copy"></i> Copiar Código Pix</button>
+                    
+                    <a id="btn-enviar-zap" href="#" target="_blank" class="btn-whatsapp-comprovante" style="display: none;">
+                        <i class="fab fa-whatsapp"></i> Já Paguei! Enviar Comprovante no Zap
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
