@@ -21,7 +21,6 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#cardapio">Menu de Essências</a></li>
                 <li><a href="#marcas">Marcas Famosas</a></li>
-                <li><a href="#checkout">Finalizar Pedido</a></li>
                 <li><a href="#contato">Local & Contato</a></li>
             </ul>
         </nav>
@@ -40,12 +39,11 @@
             <p>O QG oficial em Guaratinguetá para quem curte uma sessão de respeito. As melhores essências do mercado, narguilés de alta performance e acessórios exclusivos.</p>
             <div class="hero-buttons">
                 <a href="#cardapio" class="btn-primary"><i class="fa-solid fa-book-open"></i> Ver Menu Completo</a>
-                <a href="#checkout" class="btn-pix"><i class="fa-solid fa-qrcode"></i> Fazer Pedido & Pix</a>
             </div>
         </div>
     </section>
 
-    <!-- Seção: Menu de Essências -->
+    <!-- Seção: Menu de Essências (Com redirecionamento direto via Grid) -->
     <section id="cardapio" class="section-container">
         <div class="section-title">
             <h2><i class="fa-solid fa-fire"></i> Menu & Preços de Essências</h2>
@@ -64,7 +62,7 @@
                     <li>Swiss Alps (Frutas Cítricas e Ice)</li>
                 </ul>
                 <div class="price-tag">R$ 11,00 <small>(50g)</small></div>
-                <button onclick="selecionarProduto('Zomo Tobacco (50g)', 11.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Zomo%20Tobacco%20(50g)&preco=11.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
 
             <!-- Item 2 -->
@@ -78,7 +76,7 @@
                     <li>Hawaii (Abacaxi, Manga e Menta)</li>
                 </ul>
                 <div class="price-tag">R$ 18,00 <small>(50g)</small></div>
-                <button onclick="selecionarProduto('Adalya Tobacco (50g)', 18.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Adalya%20Tobacco%20(50g)&preco=18.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
 
             <!-- Item 3 -->
@@ -92,7 +90,7 @@
                     <li>Burley Mint</li>
                 </ul>
                 <div class="price-tag">R$ 12,00 <small>(50g)</small></div>
-                <button onclick="selecionarProduto('Ziggy Tobacco (50g)', 12.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Ziggy%20Tobacco%20(50g)&preco=12.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
 
             <!-- Item 4 -->
@@ -106,7 +104,7 @@
                     <li>Blueberry Mint</li>
                 </ul>
                 <div class="price-tag">R$ 10,00 <small>(50g)</small></div>
-                <button onclick="selecionarProduto('Nay Tobacco (50g)', 10.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Nay%20Tobacco%20(50g)&preco=10.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
 
             <!-- Item 5 -->
@@ -120,7 +118,7 @@
                     <li>Frutas Vermelhas</li>
                 </ul>
                 <div class="price-tag">R$ 13,00 <small>(50g)</small></div>
-                <button onclick="selecionarProduto('Onix Tobacco (50g)', 13.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Onix%20Tobacco%20(50g)&preco=13.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
 
             <!-- Item 6 -->
@@ -134,7 +132,7 @@
                     <li>White Peach (Pêssego Branco)</li>
                 </ul>
                 <div class="price-tag">R$ 75,00 <small>(100g)</small></div>
-                <button onclick="selecionarProduto('Fumari (100g)', 75.00)" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
+                <a href="pagamento.html?produto=Fumari%20(100g)&preco=75.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
             </div>
         </div>
     </section>
@@ -161,65 +159,6 @@
                 <i class="fa-solid fa-box-open brand-icon"></i>
                 <h3>Acessórios & Sedas</h3>
                 <p>Variedade em maçaricos recarregáveis, furadores de alumínio, pegadores estilosos, sedas <strong>Zomo, Bem Bolado, OCB</strong> e dichavadores metálicos.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção: Checkout com Pagamento Pix Externo/Simulado -->
-    <section id="checkout" class="section-container checkout-section">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-qrcode"></i> Finalizar Pedido & Pagamento Pix</h2>
-            <p>Preencha seus dados para entrega em Guaratinguetá ou retirada</p>
-        </div>
-
-        <div class="checkout-container-box">
-            <!-- Resumo do Produto Selecionado -->
-            <div class="product-summary">
-                <h4 id="product-name">Zomo Tobacco (50g)</h4>
-                <p id="product-price">R$ 11,00</p>
-            </div>
-
-            <!-- Formulário de Dados -->
-            <form id="checkout-form">
-                <h3>Dados Pessoais & Entrega</h3>
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="cep">CEP</label>
-                    <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="endereco">Endereço (Rua, Número e Bairro)</label>
-                    <input type="text" id="endereco" placeholder="Ex: Rua Sebastião Tavares de Lima, 123" required>
-                </div>
-
-                <button type="button" onclick="gerarPagamentoPix()" class="btn-pay"><i class="fa-solid fa-qrcode"></i> Gerar Pix de Pagamento</button>
-            </form>
-
-            <!-- Área do Pix Gerado (Falso / Simulado) -->
-            <div id="pix-gateway-area" class="pix-gateway-hidden">
-                <div class="pix-gateway-box">
-                    <h4>Escaneie o QR Code ou Copie o Pix</h4>
-                    <div class="qrcode-wrapper">
-                        <img id="qrcode-img" src="" alt="QR Code Pix">
-                    </div>
-                    <p class="pix-timer">⏱️ O Pix expira em <span id="timer">10:00</span></p>
-                    
-                    <div class="form-group" style="margin-top: 15px;">
-                        <label>Pix Copia e Cola:</label>
-                        <input type="text" id="pix-copia-cola" readonly value="">
-                    </div>
-
-                    <button type="button" onclick="copiarPixFake()" class="btn-copy" id="btnCopyFake"><i class="fa-solid fa-copy"></i> Copiar Código Pix</button>
-                    
-                    <a id="btn-enviar-zap" href="#" target="_blank" class="btn-whatsapp-comprovante" style="display: none;">
-                        <i class="fab fa-whatsapp"></i> Já Paguei! Enviar Comprovante no Zap
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -266,6 +205,6 @@
         <p>&copy; 2026 Matheus Tabacão — Parque do Sol, Guaratinguetá - SP. Proibida a venda de produtos de tabacaria para menores de 18 anos.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
+
