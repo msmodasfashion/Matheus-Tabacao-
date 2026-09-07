@@ -4,169 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento | Matheus Tabacão</title>
-    <!-- Google Fonts para tipografia serifada clássica -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos complementares para a página de Pagamento */
-        .payment-page {
+        /* Estilos dedicados e garantidos para a página de pagamento */
+        body.pagamento-body {
+            background-color: #120d09;
+            background-image: radial-gradient(circle at 50% 50%, #1c120c 0%, #080503 100%);
+            color: #e6dec9;
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: radial-gradient(circle at 50% 50%, #1c120c 0%, #080503 100%);
-            padding-top: 100px;
-            padding-bottom: 50px;
         }
 
-        .payment-container {
+        .payment-main-wrapper {
+            padding: 120px 20px 60px 20px;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
             width: 100%;
         }
 
-        .payment-card {
+        .payment-box-card {
             background: linear-gradient(145deg, #18100a 0%, #0d0805 100%);
-            border: 2px solid var(--gold);
+            border: 2px solid #d4af37;
             border-radius: 8px;
             padding: 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(212, 175, 55, 0.05);
-            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(212, 175, 55, 0.05);
             text-align: center;
+            position: relative;
         }
 
-        .payment-card h1 {
-            font-size: 2.4rem;
-            color: var(--gold-light);
+        .payment-box-card h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: #f3e5ab;
             margin-bottom: 10px;
         }
 
-        .payment-subtitle {
-            color: var(--aged-beige-dim);
+        .payment-box-card p.sub {
+            color: #b8b09b;
             font-style: italic;
             margin-bottom: 30px;
-            font-size: 1.05rem;
         }
 
-        .payment-section-box {
-            background-color: rgba(18, 12, 8, 0.7);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+        .pay-section {
+            background-color: rgba(18, 12, 8, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 6px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
             text-align: center;
         }
 
-        .payment-section-box h3 {
-            font-size: 1.4rem;
-            color: var(--gold);
+        .pay-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 1.3rem;
             margin-bottom: 15px;
         }
 
-        .pix-key-display {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
-            color: var(--gold-light);
-            background: rgba(8, 5, 3, 0.8);
+        .pix-code-box {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: #f3e5ab;
+            background: rgba(8, 5, 3, 0.9);
             padding: 12px 20px;
-            border: 1px dashed var(--gold);
+            border: 1px dashed #d4af37;
             border-radius: 4px;
             display: inline-block;
-            margin: 15px 0 20px 0;
-            letter-spacing: 1px;
+            margin: 15px 0;
             word-break: break-all;
         }
 
-        /* Área reservada para o QR Code (sem imagens falsas) */
-        .qrcode-placeholder {
-            width: 180px;
-            height: 180px;
+        .qr-placeholder {
+            width: 160px;
+            height: 160px;
             background-color: #0c0806;
             border: 2px solid rgba(212, 175, 55, 0.4);
             border-radius: 4px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 15px;
+            justify-content: center;
+            padding: 10px;
             text-align: center;
         }
 
-        .qrcode-placeholder span {
-            font-size: 0.8rem;
-            color: var(--aged-beige-dim);
-            font-family: var(--font-title);
-            line-height: 1.3;
+        .qr-placeholder span {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: #b8b09b;
+            line-height: 1.4;
         }
 
-        .toast-message {
+        .toast-aviso {
             margin-top: 10px;
-            font-size: 0.9rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
             color: #76d7c4;
-            font-family: var(--font-title);
             opacity: 0;
             transition: opacity 0.3s ease;
             height: 20px;
         }
 
-        .toast-message.show {
+        .toast-aviso.visivel {
             opacity: 1;
         }
 
-        .gateway-notice {
-            font-size: 0.9rem;
-            color: var(--aged-beige);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .back-link-container {
-            margin-top: 30px;
+        .voltar-loja {
             text-align: center;
+            margin-top: 25px;
         }
 
-        .back-link {
-            display: inline-block;
-            color: var(--gold);
-            font-family: var(--font-title);
+        .voltar-loja a {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            text-decoration: none;
             font-size: 0.9rem;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            text-transform: uppercase;
             border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-        .back-link:hover {
-            color: var(--gold-light);
-            border-bottom-color: var(--gold-light);
-        }
-
-        @media (max-width: 600px) {
-            .payment-card {
-                padding: 25px 15px;
-            }
-            .payment-card h1 {
-                font-size: 1.9rem;
-            }
-            .pix-key-display {
-                font-size: 1.1rem;
-            }
+        .voltar-loja a:hover {
+            color: #f3e5ab;
+            border-bottom-color: #f3e5ab;
         }
     </style>
 </head>
-<body>
+<body class="pagamento-body">
 
-    <!-- HEADER SIMPLIFICADO / FIXO -->
-    <header id="header" class="header scrolled">
+    <!-- HEADER -->
+    <header class="header scrolled">
         <div class="container header-container">
             <a href="index.html" class="logo">MATHEUS TABACÃO</a>
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="pagamento.html" class="nav-link" style="color: var(--gold);">Pagamento</a></li>
                     <li><a href="index.html#produtos" class="nav-link">Produtos</a></li>
                     <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
                     <li><a href="index.html#contato" class="nav-link">Contato</a></li>
@@ -175,60 +158,54 @@
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL DE PAGAMENTO -->
-    <main class="payment-page">
-        <div class="payment-container">
-            <div class="payment-card animate-on-scroll visible">
-                <div class="modal-ornament top"></div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="payment-main-wrapper">
+        <div class="payment-box-card">
+            <h1>Painel de Pagamento</h1>
+            <p class="sub">Transações seguras e atendimento dedicado</p>
+
+            <!-- PIX -->
+            <div class="pay-section">
+                <h3>Pagamento via PIX</h3>
                 
-                <h1>Pagamento</h1>
-                <p class="payment-subtitle">Conclua sua aquisição com total segurança e praticidade</p>
+                <div class="qr-placeholder" title="Espaço reservado para QR Code oficial">
+                    <span>[ ESPAÇO RESERVADO PARA QR CODE PIX ]</span>
+                </div>
+
+                <p style="font-size: 0.9rem; color: #b8b09b;">Chave PIX (Telefone):</p>
+                <div class="pix-code-box" id="chave-pix-texto">+55 12 99136-2201</div>
                 
-                <!-- SEÇÃO PIX -->
-                <div class="payment-section-box">
-                    <h3>Pagamento via PIX</h3>
-                    
-                    <!-- Espaço reservado para QR Code (sem gerar imagem falsa) -->
-                    <div class="qrcode-placeholder" title="Espaço reservado para futuro QR Code PIX válido">
-                        <span>[ ESPAÇO RESERVADO PARA QR CODE PIX ]</span>
-                    </div>
-
-                    <p style="font-size: 0.9rem; color: var(--aged-beige-dim); margin-bottom: 10px;">Chave PIX (Telefone):</p>
-                    <div class="pix-key-display" id="pix-key-text">+55 12 99136-2201</div>
-                    
-                    <div>
-                        <button id="btn-copy-pix" class="btn-gold">COPIAR CHAVE PIX</button>
-                    </div>
-                    <div id="toast" class="toast-message">Chave PIX copiada!</div>
+                <div>
+                    <button id="btn-copiar" class="btn-gold">COPIAR CHAVE PIX</button>
                 </div>
-
-                <!-- SEÇÃO CARTÃO / GATEWAY FUTURO (SEM DADOS SENSÍVEIS) -->
-                <div class="payment-section-box">
-                    <h3>Cartão de Crédito / Débito</h3>
-                    <p class="gateway-notice">Para pagamentos via cartão de crédito, disponibilizaremos em breve integração segura com gateway certificado. Nenhum dado de cartão é armazenado ou solicitado diretamente neste site.</p>
-                    <button class="btn-dark" onclick="alert('Integração com gateway de pagamento seguro em breve.')">Pagar com Cartão (Em Breve)</button>
-                </div>
-
-                <!-- SEÇÃO AJUDA / WHATSAPP -->
-                <div class="payment-section-box" style="margin-bottom: 0;">
-                    <h3>Precisa de ajuda com o pagamento?</h3>
-                    <p style="color: var(--aged-beige); margin-bottom: 15px; font-size: 0.95rem;">Telefone: <strong>+55 12 99136-2201</strong></p>
-                    <a href="https://wa.me/5512991362201?text=Olá,%20estou%20na%20página%20de%20pagamento%20e%20preciso%20de%20auxílio." target="_blank" rel="noopener noreferrer" class="btn-gold">
-                        Falar pelo WhatsApp
-                    </a>
-                </div>
-
-                <div class="modal-ornament bottom" style="margin-top: 30px;"></div>
+                <div id="toast-copia" class="toast-aviso">Chave PIX copiada!</div>
             </div>
 
-            <!-- BOTÃO VOLTAR PARA A LOJA -->
-            <div class="back-link-container">
-                <a href="index.html" class="back-link">← Voltar para a loja</a>
+            <!-- CARTÃO / GATEWAY FUTURO -->
+            <div class="pay-section">
+                <h3>Cartão de Crédito / Débito</h3>
+                <p style="font-size: 0.9rem; color: #e6dec9; margin-bottom: 15px; line-height: 1.5;">
+                    Para pagamentos via cartão, utilizaremos em breve um gateway certificado. Nenhum dado sensível de cartão é armazenado ou requisitado diretamente nesta página.
+                </p>
+                <button class="btn-dark" onclick="alert('Integração com gateway de pagamento em breve.')">Pagar com Cartão (Em Breve)</button>
             </div>
+
+            <!-- WHATSAPP / SUPORTE -->
+            <div class="pay-section" style="margin-bottom: 0;">
+                <h3>Precisa de ajuda com o pagamento?</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 15px;">Telefone: <strong>+55 12 99136-2201</strong></p>
+                <a href="https://wa.me/5512991362201?text=Olá,%20estou%20na%20página%20de%20pagamento%20e%20preciso%20de%20suporte." target="_blank" rel="noopener noreferrer" class="btn-gold">
+                    Falar pelo WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="voltar-loja">
+            <a href="index.html">← Voltar para a loja principal</a>
         </div>
     </main>
 
-    <!-- RODAPÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
@@ -240,8 +217,8 @@
                 <h4>Navegação</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Início</a></li>
+                    <li><a href="pagamento.html">Pagamento</a></li>
                     <li><a href="index.html#produtos">Produtos</a></li>
-                    <li><a href="index.html#sobre">Sobre</a></li>
                     <li><a href="index.html#contato">Contato</a></li>
                 </ul>
             </div>
@@ -256,43 +233,35 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE CÓPIA DA CHAVE PIX -->
+    <!-- SCRIPT DE CÓPIAS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const btnCopy = document.getElementById('btn-copy-pix');
-            const pixKeyText = document.getElementById('pix-key-text').innerText;
-            const toast = document.getElementById('toast');
+            const btnCopiar = document.getElementById('btn-copiar');
+            const chaveTexto = document.getElementById('chave-pix-texto').innerText;
+            const toast = document.getElementById('toast-copia');
 
-            btnCopy.addEventListener('click', () => {
-                // Utiliza a API moderna de Clipboard para copiar o texto
-                navigator.clipboard.writeText(pixKeyText).then(() => {
-                    toast.innerText = "Chave PIX copiada!";
-                    toast.classList.add('show');
-
+            btnCopiar.addEventListener('click', () => {
+                navigator.clipboard.writeText(chaveTexto).then(() => {
+                    toast.classList.add('visivel');
                     setTimeout(() => {
-                        toast.classList.remove('show');
+                        toast.classList.remove('visivel');
                     }, 3000);
-                }).catch(err => {
-                    // Fallback caso a API moderna não esteja disponível no contexto do navegador
-                    const textArea = document.createElement('textarea');
-                    textArea.value = pixKeyText;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        toast.innerText = "Chave PIX copiada!";
-                        toast.classList.add('show');
-                        setTimeout(() => {
-                            toast.classList.remove('show');
-                        }, 3000);
-                    } catch (e) {
-                        toast.innerText = "Erro ao copiar chave.";
-                        toast.classList.add('show');
-                    }
-                    document.body.removeChild(textArea);
+                }).catch(() => {
+                    // Fallback para navegadores antigos
+                    const aux = document.createElement('textarea');
+                    aux.value = chaveTexto;
+                    document.body.appendChild(aux);
+                    aux.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(aux);
+                    toast.classList.add('visivel');
+                    setTimeout(() => {
+                        toast.classList.remove('visivel');
+                    }, 3000);
                 });
             });
         });
     </script>
 </body>
 </html>
+
