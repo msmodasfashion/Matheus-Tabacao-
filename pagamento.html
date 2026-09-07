@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Seguro | Matheus Tabacão</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-checkout-body">
+
+    <!-- Cabeçalho Simples da Página de Pagamento -->
+    <header class="checkout-page-header">
+        <div class="logo">
+            <h1>Matheus<span>Tabacão</span></h1>
+            <p class="subtitle-cep">Ambiente de Pagamento Seguro</p>
+        </div>
+        <a href="index.html" class="btn-voltar-home"><i class="fa-solid fa-arrow-left"></i> Voltar à Loja</a>
+    </header>
+
+    <!-- Conteúdo Principal de Pagamento -->
+    <main class="checkout-main-container">
+        <div class="checkout-container-box wide-box">
+            <div class="section-title" style="margin-bottom: 25px;">
+                <h2><i class="fa-solid fa-shield-halved"></i> Caixa Rústico - Pagamento Pix</h2>
+                <p>Finalize seus dados para liberação imediata do pedido em Guaratinguetá</p>
+            </div>
+
+            <!-- Resumo do Produto -->
+            <div class="product-summary">
+                <h4 id="resumo-produto-nome">Carregando produto...</h4>
+                <p id="resumo-produto-preco">R$ 0,00</p>
+            </div>
+
+            <!-- Formulário -->
+            <form id="checkout-form-externo">
+                <h3>1. Dados de Entrega & Contato</h3>
+                <div class="form-group">
+                    <label for="pag-nome">Nome Completo</label>
+                    <input type="text" id="pag-nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pag-cep">CEP</label>
+                    <input type="text" id="pag-cep" placeholder="00000-000" maxlength="9" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pag-endereco">Endereço (Rua, Número e Bairro)</label>
+                    <input type="text" id="pag-endereco" placeholder="Ex: Rua Sebastião Tavares de Lima, 123" required>
+                </div>
+
+                <button type="button" onclick="gerarPagamentoFakeSite()" class="btn-pay">
+                    <i class="fa-solid fa-qrcode"></i> Gerar Pix de Pagamento
+                </button>
+            </form>
+
+            <!-- Área do Pix Gerado Fake -->
+            <div id="pix-gateway-area" class="pix-gateway-hidden">
+                <div class="pix-gateway-box">
+                    <h4>Escaneie o QR Code ou Copie o Pix</h4>
+                    <div class="qrcode-wrapper">
+                        <img id="qrcode-img" src="" alt="QR Code Pix Simulado">
+                    </div>
+                    <p class="pix-timer">⏱️ O código expira em <span id="timer">10:00</span></p>
+                    
+                    <div class="form-group" style="margin-top: 15px; text-align: left;">
+                        <label>Pix Copia e Cola:</label>
+                        <input type="text" id="pix-copia-cola" readonly value="">
+                    </div>
+
+                    <button type="button" onclick="copiarPixFakeSite()" class="btn-copy" id="btnCopyFake">
+                        <i class="fa-solid fa-copy"></i> Copiar Código Pix
+                    </button>
+                    
+                    <a id="btn-enviar-zap" href="#" target="_blank" class="btn-whatsapp-comprovante" style="display: none;">
+                        <i class="fab fa-whatsapp"></i> Já Paguei! Enviar Comprovante no Zap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Matheus Tabacão — Ambiente Protegido e Simulado. Guaratinguetá - SP.</p>
+    </footer>
+
+    <script src="pagamento.js"></script>
+</body>
+</html>
+
