@@ -3,208 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Tabacão | Essências, Narguilés e Acessórios Rústicos</title>
+    <title>Matheus Tabacão | Tradição e Elegância</title>
+    <!-- Google Fonts: Playfair Display para títulos vintage e Inter/Lora para textos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Cabeçalho Rústico -->
-    <header>
-        <div class="logo">
-            <h1>Matheus<span>Tabacão</span></h1>
-            <p class="subtitle-cep">Parque do Sol, Guaratinguetá - SP</p>
+    <!-- MODAL DE VERIFICAÇÃO DE IDADE -->
+    <div id="age-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-ornament"></div>
+            <h2>MATHEUS TABACÃO</h2>
+            <p>Este estabelecimento comercializa produtos destinados exclusivamente a maiores de 18 anos.</p>
+            <div class="modal-buttons">
+                <button id="btn-over-18" class="btn-primary">Tenho 18 anos ou mais</button>
+                <button id="btn-under-18" class="btn-secondary">Sou menor de 18 anos</button>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#cardapio">Menu de Essências</a></li>
-                <li><a href="#marcas">Marcas Famosas</a></li>
-                <li><a href="#contato">Local & Contato</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <a href="https://wa.me/5512991362201?text=Salve,%20Matheus!%20Vim%20pelo%20site%20e%20quero%20fechar%20um%20pedido!" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Chamar no Zap
-            </a>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">MATHEUS TABACÃO</a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                    <li><a href="#pagamento">Pagamento</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." target="_blank" class="btn-header">Contato</a>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <!-- Seção Principal (Hero) -->
-    <section id="home" class="hero">
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h2>Tradição, Fumaça & Estilo Rústico</h2>
-            <p>O QG oficial em Guaratinguetá para quem curte uma sessão de respeito. As melhores essências do mercado, narguilés de alta performance e acessórios exclusivos.</p>
-            <div class="hero-buttons">
-                <a href="#cardapio" class="btn-primary"><i class="fa-solid fa-book-open"></i> Ver Menu Completo</a>
-            </div>
+        <div class="container hero-content">
+            <h1 class="fade-in">MATHEUS TABACÃO</h1>
+            <p class="fade-in">Tradição, qualidade e atendimento.</p>
+            <a href="#produtos" class="btn-primary fade-in">CONHEÇA NOSSOS PRODUTOS</a>
         </div>
     </section>
 
-    <!-- Seção: Menu de Essências (Com redirecionamento direto via Grid) -->
-    <section id="cardapio" class="section-container">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-fire"></i> Menu & Preços de Essências</h2>
-            <p>Os sabores mais brutos e marcantes do mercado nacional e importado</p>
-        </div>
-        
-        <div class="grid-cards">
-            <!-- Item 1 -->
-            <div class="rustic-card">
-                <span class="badge">Nacional Top</span>
-                <h3>Zomo Tobacco</h3>
-                <p class="desc">A preferida da galera. Variedade insana de sabores marcantes e fumaça densa.</p>
-                <ul class="flavors-list">
-                    <li>Strong Mint (Menta Forte)</li>
-                    <li>Max Bala de Morango</li>
-                    <li>Swiss Alps (Frutas Cítricas e Ice)</li>
-                </ul>
-                <div class="price-tag">R$ 11,00 <small>(50g)</small></div>
-                <a href="pagamento.html?produto=Zomo%20Tobacco%20(50g)&preco=11.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
+    <!-- PRODUTOS -->
+    <section id="produtos" class="section products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catálogo Selecionado</h2>
+                <p>Marcas de referência e produtos tradicionais</p>
+                <span class="disclaimer-note">* Produtos, preços e disponibilidade devem ser confirmados diretamente com a loja.</span>
             </div>
 
-            <!-- Item 2 -->
-            <div class="rustic-card">
-                <span class="badge importada">Importada Famosa</span>
-                <h3>Adalya Tobacco</h3>
-                <p class="desc">Direto da Turquia para a sua sessão. Qualidade indiscutível e sabor duradouro.</p>
-                <ul class="flavors-list">
-                    <li>Love 66 (Melão, Melancia, Menta e Floral)</li>
-                    <li>Ice Bonbon (Mentolado Doce)</li>
-                    <li>Hawaii (Abacaxi, Manga e Menta)</li>
-                </ul>
-                <div class="price-tag">R$ 18,00 <small>(50g)</small></div>
-                <a href="pagamento.html?produto=Adalya%20Tobacco%20(50g)&preco=18.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
+            <!-- Filtros de Categoria -->
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="charutos">Charutos</button>
+                <button class="filter-btn" data-filter="tabacos">Tabacos</button>
+                <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+                <button class="filter-btn" data-filter="isqueiros">Isqueiros</button>
+                <button class="filter-btn" data-filter="papelaria">Papelaria</button>
             </div>
 
-            <!-- Item 3 -->
-            <div class="rustic-card">
-                <span class="badge">Destaque</span>
-                <h3>Ziggy Tobacco</h3>
-                <p class="desc">Picada fina, excelente rendimento e sabores extremamente fiéis.</p>
-                <ul class="flavors-list">
-                    <li>Happy Berry (Frutas Vermelhas)</li>
-                    <li>Yellow Starburst (Bala de Laranja Doce)</li>
-                    <li>Burley Mint</li>
-                </ul>
-                <div class="price-tag">R$ 12,00 <small>(50g)</small></div>
-                <a href="pagamento.html?produto=Ziggy%20Tobacco%20(50g)&preco=12.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
-            </div>
+            <!-- Grid de Produtos -->
+            <div class="products-grid">
 
-            <!-- Item 4 -->
-            <div class="rustic-card">
-                <span class="badge">Custo-Benefício</span>
-                <h3>Nay Tobacco</h3>
-                <p class="desc">Fumaça encorpada e refrescância prolongada para sessões longas.</p>
-                <ul class="flavors-list">
-                    <li>Bubble Grape (Uva Chiclete)</li>
-                    <li>Maracujá Blend</li>
-                    <li>Blueberry Mint</li>
-                </ul>
-                <div class="price-tag">R$ 10,00 <small>(50g)</small></div>
-                <a href="pagamento.html?produto=Nay%20Tobacco%20(50g)&preco=10.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="rustic-card">
-                <span class="badge">Braba</span>
-                <h3>Onix Tobacco</h3>
-                <p class="desc">Tabaco de alta qualidade com essências doces e geladas marcantes.</p>
-                <ul class="flavors-list">
-                    <li>Morango Gelado</li>
-                    <li>Menta Premium</li>
-                    <li>Frutas Vermelhas</li>
-                </ul>
-                <div class="price-tag">R$ 13,00 <small>(50g)</small></div>
-                <a href="pagamento.html?produto=Onix%20Tobacco%20(50g)&preco=13.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="rustic-card">
-                <span class="badge importada">Premium USA</span>
-                <h3>Fumari</h3>
-                <p class="desc">A lendária essência americana artesanal. Molhada, densa e sabor incomparável.</p>
-                <ul class="flavors-list">
-                    <li>Lemon Mint (Limão com Menta)</li>
-                    <li>Spiced Chai (Baunilha com Especiarias)</li>
-                    <li>White Peach (Pêssego Branco)</li>
-                </ul>
-                <div class="price-tag">R$ 75,00 <small>(100g)</small></div>
-                <a href="pagamento.html?produto=Fumari%20(100g)&preco=75.00" class="btn-item-zap"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção: Marcas Famosas & Acessórios -->
-    <section id="marcas" class="section-container dark-alt">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-crown"></i> Marcas Famosas & Equipamentos</h2>
-            <p>Trabalhamos apenas com o topo de linha do mercado de narguilés e tabacaria</p>
-        </div>
-
-        <div class="grid-brands">
-            <div class="brand-box">
-                <i class="fa-solid fa-wind brand-icon"></i>
-                <h3>Narguilés & Vases</h3>
-                <p>Equipamentos completos e peças de reposição das marcas mais renomadas: <strong>Kahyza, Sultan Hookah, Triton, Amazon Hookah e Stem Evoke</strong>.</p>
-            </div>
-            <div class="brand-box">
-                <i class="fa-solid fa-bolt brand-icon"></i>
-                <h3>Carvões de Coco</h3>
-                <p>Calor duradouro sem gosto residual. Marcas campeãs de vendas: <strong>CocoLoko, King Coco e Zomo Coco</strong>.</p>
-            </div>
-            <div class="brand-box">
-                <i class="fa-solid fa-box-open brand-icon"></i>
-                <h3>Acessórios & Sedas</h3>
-                <p>Variedade em maçaricos recarregáveis, furadores de alumínio, pegadores estilosos, sedas <strong>Zomo, Bem Bolado, OCB</strong> e dichavadores metálicos.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Contato e Localização -->
-    <section id="contato" class="section-container">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-map-location-dot"></i> Onde Estamos</h2>
-            <p>Atendimento local em Guaratinguetá - SP</p>
-        </div>
-
-        <div class="contact-box-rustic">
-            <div class="contact-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <div>
-                    <h4>Endereço</h4>
-                    <p>Rua Sebastião Tavares de Lima, Parque do Sol<br>Guaratinguetá - SP — CEP: <strong>12518-140</strong></p>
+                <!-- Card 1: Charutos -->
+                <div class="product-card" data-category="charutos">
+                    <div class="product-img-wrapper">
+                        <!-- Substitua o atributo src pela imagem real do produto -->
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Charuto Davidoff">
+                        <span class="product-brand">Davidoff</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Charuto Selecionado</h3>
+                        <p class="product-desc">Seleção especial de charutos importados com notas amadeiradas e excelente maturação.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20do%20Charuto%20Davidoff." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-clock"></i>
-                <div>
-                    <h4>Horário de Funcionamento</h4>
-                    <p>Segunda a Sábado: 10h às 22h<br>Domingo: 14h às 20h</p>
+
+                <!-- Card 2: Tabacos -->
+                <div class="product-card" data-category="tabacos">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516762689617-e16fbcef4ac9?auto=format&fit=crop&w=600&q=80" alt="Tabaco Tradicional">
+                        <span class="product-brand">Tabacaria</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tabaco Artesanal / Premium</h3>
+                        <p class="product-desc">Misturas selecionadas para apreciadores de cortes refinados e aromas clássicos.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20do%20Tabaco%20Premium." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Card 3: Isqueiros -->
+                <div class="product-card" data-category="isqueiros">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Isqueiro Zippo">
+                        <span class="product-brand">Zippo / BIC</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Isqueiros Clássicos e Recarregáveis</h3>
+                        <p class="product-desc">Durabilidade, acabamento metálico refinado e confiabilidade atemporal.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20Isqueiros." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Acessórios -->
+                <div class="product-card" data-category="acessorios">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Acessório Stanley">
+                        <span class="product-brand">Stanley</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Copos e Térmicos Stanley</h3>
+                        <p class="product-desc">Mantém sua bebida na temperatura ideal durante momentos de contemplação e descanso.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20produtos%20Stanley." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Papelaria -->
+                <div class="product-card" data-category="papelaria">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Papelaria RAW e OCB">
+                        <span class="product-brand">RAW / OCB</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Papelaria para Fumantes</h3>
+                        <p class="product-desc">Variedade em sedas de alta qualidade, piteiras e filtros das marcas mais conceituadas do mercado.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20da%20Papelaria." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Acessórios / Cortadores -->
+                <div class="product-card" data-category="acessorios">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Acessórios para Charutos">
+                        <span class="product-brand">Variedados</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cortadores e Cinzeiros</h3>
+                        <p class="product-desc">Utensílios robustos e elegantes para o ritual completo com acabamento clássico.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consulte o valor</span>
+                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20acessórios." target="_blank" class="btn-card">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <div>
-                    <h4>WhatsApp Oficial</h4>
-                    <p><a href="https://wa.me/5512991362201" target="_blank" style="color: #25d366; text-decoration: none;">(12) 99136-2201</a></p>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section about-section">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>Sobre a Matheus Tabacão</h2>
+                <p>Fundada com a essência das antigas tabacarias tradicionais, a <strong>Matheus Tabacão</strong> preza pela excelência em cada detalhe. Nosso ambiente foi pensado para proporcionar uma experiência acolhedora, resgatando o charme clássico, o atendimento atencioso e a curadoria rigorosa de produtos.</p>
+                <p>Trabalhamos com marcas consagradas mundialmente, oferecendo um portfólio diversificado que atende aos apreciadores mais exigentes. Valorizamos a cordialidade, o respeito e a tradição de um bom atendimento de balcão.</p>
+            </div>
+            <div class="about-image">
+                <div class="image-frame">
+                    <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=800&q=80" alt="Interior Clássico Tabacaria">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5512991362201?text=Salve,%20Matheus!%20Vim%20pelo%20site." target="_blank" class="float-whatsapp" title="Fale com Matheus Tabacão">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao" class="section location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Onde Estamos</h2>
+                <p>Venha nos fazer uma visita</p>
+            </div>
+            <div class="location-content">
+                <div class="location-card">
+                    <div class="location-details">
+                        <h3>Matheus Tabacão</h3>
+                        <p id="store-address"><strong>Endereço:</strong> [Insira o endereço completo da loja aqui]</p>
+                        <p><strong>CEP:</strong> 12518-140</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=CEP+12518-140" target="_blank" class="btn-primary">Como chegar</a>
+                    </div>
+                    <!-- Área reservada para futuro Google Maps -->
+                    <div class="map-placeholder">
+                        <div class="map-notice">
+                            <span>Mapa interativo (Google Maps) pronto para inserção futura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Rodapé Rústico -->
-    <footer>
-        <p>&copy; 2026 Matheus Tabacão — Parque do Sol, Guaratinguetá - SP. Proibida a venda de produtos de tabacaria para menores de 18 anos.</p>
+    <!-- PAGAMENTO -->
+    <section id="pagamento" class="section payment-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Formas de Pagamento</h2>
+                <p>Facilidade e segurança na sua compra</p>
+            </div>
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <div class="payment-icon">💳</div>
+                    <h3>Cartões de Crédito / Débito</h3>
+                    <p>Aceitamos as principais bandeiras do mercado em transações presenciais ou online.</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">⚡</div>
+                    <h3>PIX</h3>
+                    <p>Pagamento instantâneo, prático e seguro com aprovação imediata.</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">💵</div>
+                    <h3>Dinheiro em Espécie</h3>
+                    <p>Atendimento tradicional com troco e facilidade no balcão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO / WHATSAPP -->
+    <section class="section contact-cta-section">
+        <div class="container text-center">
+            <h2>Atendimento Personalizado</h2>
+            <p>Dúvidas sobre produtos, disponibilidade ou encomendas? Fale diretamente conosco.</p>
+            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20atendimento." target="_blank" class="btn-whatsapp">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Falar pelo WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>MATHEUS TABACÃO</h3>
+                <p>Tradição, elegância e atendimento de excelência.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                    <li><a href="#pagamento">Pagamento</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato & Local</h4>
+                <p><strong>Telefone / WhatsApp:</strong> (12) 99136-2201</p>
+                <p><strong>CEP:</strong> 12518-140</p>
+            </div>
+            <div class="footer-col">
+                <h4>Aviso Legal</h4>
+                <p class="footer-age-warning">Estabelecimento restrito a maiores de 18 anos. Aprecie com moderação.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Matheus Tabacão. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
-
