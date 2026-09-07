@@ -1,9 +1,8 @@
-// Preenchimento Automático do Endereço pelo CEP via API ViaCEP
+// Preenchimento Automático do CEP (ViaCEP)
 document.getElementById('cep').addEventListener('blur', function() {
-    let cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    let cep = this.value.replace(/\D/g, '');
 
     if (cep.length === 8) {
-        // Preenche campos informando que está buscando
         document.getElementById('cidade').value = 'Buscando...';
         document.getElementById('endereco').value = 'Buscando...';
 
@@ -12,32 +11,28 @@ document.getElementById('cep').addEventListener('blur', function() {
             .then(data => {
                 if (!data.erro) {
                     document.getElementById('cidade').value = `${data.localidade} - ${data.uf}`;
-                    document.getElementById('endereco').value = `${data.logradouro}, ${data.bairro}`;
+                    document.getElementById('endereco').value = `${data.logradouro}, ${data.bairro} - `;
                 } else {
-                    alert('CEP não encontrado. Verifique o número digitado.');
+                    alert('CEP não encontrado.');
                     document.getElementById('cidade').value = '';
                     document.getElementById('endereco').value = '';
                 }
             })
-            .catch(error => {
-                console.error('Erro ao buscar o CEP:', error);
+            .catch(() => {
+                alert('Erro ao buscar o CEP.');
                 document.getElementById('cidade').value = '';
                 document.getElementById('endereco').value = '';
             });
     }
 });
 
-// Processamento e Envio do Formulário
+// Ação de Envio e Redirecionamento para o Link de Pagamento Externo
 document.getElementById('checkout-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
     const nome = document.getElementById('nome').value;
-    const cpf = document.getElementById('cpf').value;
-    const cep = document.getElementById('cep').value;
+    alert(`Tudo certo, ${nome}! Redirecionando para o ambiente de pagamento...`);
 
-    alert(`Tudo certo, ${nome}! Redirecionando para o pagamento...`);
-    
-    // Insira o link de pagamento do seu gateway aqui (ex: Mercado Pago, Stripe, etc.):
-    // window.location.href = "SEU_LINK_DE_PAGAMENTO_AQUI";
+    // COLOQUE O SEU LINK DE PAGAMENTO REAL ABAIXO ENTRE AS ASPAS:
+    window.location.href = "https://seu-link-de-pagamento-aqui.com";
 });
- 
