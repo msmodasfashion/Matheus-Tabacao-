@@ -3,91 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Seguro | Matheus Tabacão</title>
+    <title>Pagamento | Matheus Tabacão</title>
+    <!-- Google Fonts para tipografia serifada clássica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body class="page-checkout-body">
+    <style>
+        /* Estilos específicos complementares para a página de Pagamento */
+        .payment-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: radial-gradient(circle at 50% 50%, #1c120c 0%, #080503 100%);
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
 
-    <!-- Cabeçalho Simples da Página de Pagamento -->
-    <header class="checkout-page-header">
-        <div class="logo">
-            <h1>Matheus<span>Tabacão</span></h1>
-            <p class="subtitle-cep">Ambiente de Pagamento Seguro</p>
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .payment-card {
+            background: linear-gradient(145deg, #18100a 0%, #0d0805 100%);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(212, 175, 55, 0.05);
+            position: relative;
+            text-align: center;
+        }
+
+        .payment-card h1 {
+            font-size: 2.4rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+
+        .payment-subtitle {
+            color: var(--aged-beige-dim);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .payment-section-box {
+            background-color: rgba(18, 12, 8, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .payment-section-box h3 {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .pix-key-display {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            background: rgba(8, 5, 3, 0.8);
+            padding: 12px 20px;
+            border: 1px dashed var(--gold);
+            border-radius: 4px;
+            display: inline-block;
+            margin: 15px 0 20px 0;
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+
+        /* Área reservada para o QR Code (sem imagens falsas) */
+        .qrcode-placeholder {
+            width: 180px;
+            height: 180px;
+            background-color: #0c0806;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .qrcode-placeholder span {
+            font-size: 0.8rem;
+            color: var(--aged-beige-dim);
+            font-family: var(--font-title);
+            line-height: 1.3;
+        }
+
+        .toast-message {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #76d7c4;
+            font-family: var(--font-title);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: 20px;
+        }
+
+        .toast-message.show {
+            opacity: 1;
+        }
+
+        .gateway-notice {
+            font-size: 0.9rem;
+            color: var(--aged-beige);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .back-link-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--gold);
+            font-family: var(--font-title);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold-light);
+            border-bottom-color: var(--gold-light);
+        }
+
+        @media (max-width: 600px) {
+            .payment-card {
+                padding: 25px 15px;
+            }
+            .payment-card h1 {
+                font-size: 1.9rem;
+            }
+            .pix-key-display {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER SIMPLIFICADO / FIXO -->
+    <header id="header" class="header scrolled">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MATHEUS TABACÃO</a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="index.html#produtos" class="nav-link">Produtos</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-        <a href="index.html" class="btn-voltar-home"><i class="fa-solid fa-arrow-left"></i> Voltar à Loja</a>
     </header>
 
-    <!-- Conteúdo Principal de Pagamento -->
-    <main class="checkout-main-container">
-        <div class="checkout-container-box wide-box">
-            <div class="section-title" style="margin-bottom: 25px;">
-                <h2><i class="fa-solid fa-shield-halved"></i> Caixa Rústico - Pagamento Pix</h2>
-                <p>Finalize seus dados para liberação imediata do pedido em Guaratinguetá</p>
-            </div>
-
-            <!-- Resumo do Produto -->
-            <div class="product-summary">
-                <h4 id="resumo-produto-nome">Carregando produto...</h4>
-                <p id="resumo-produto-preco">R$ 0,00</p>
-            </div>
-
-            <!-- Formulário -->
-            <form id="checkout-form-externo">
-                <h3>1. Dados de Entrega & Contato</h3>
-                <div class="form-group">
-                    <label for="pag-nome">Nome Completo</label>
-                    <input type="text" id="pag-nome" placeholder="Digite seu nome completo" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="pag-cep">CEP</label>
-                    <input type="text" id="pag-cep" placeholder="00000-000" maxlength="9" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="pag-endereco">Endereço (Rua, Número e Bairro)</label>
-                    <input type="text" id="pag-endereco" placeholder="Ex: Rua Sebastião Tavares de Lima, 123" required>
-                </div>
-
-                <button type="button" onclick="gerarPagamentoFakeSite()" class="btn-pay">
-                    <i class="fa-solid fa-qrcode"></i> Gerar Pix de Pagamento
-                </button>
-            </form>
-
-            <!-- Área do Pix Gerado Fake -->
-            <div id="pix-gateway-area" class="pix-gateway-hidden">
-                <div class="pix-gateway-box">
-                    <h4>Escaneie o QR Code ou Copie o Pix</h4>
-                    <div class="qrcode-wrapper">
-                        <img id="qrcode-img" src="" alt="QR Code Pix Simulado">
-                    </div>
-                    <p class="pix-timer">⏱️ O código expira em <span id="timer">10:00</span></p>
+    <!-- CONTEÚDO PRINCIPAL DE PAGAMENTO -->
+    <main class="payment-page">
+        <div class="payment-container">
+            <div class="payment-card animate-on-scroll visible">
+                <div class="modal-ornament top"></div>
+                
+                <h1>Pagamento</h1>
+                <p class="payment-subtitle">Conclua sua aquisição com total segurança e praticidade</p>
+                
+                <!-- SEÇÃO PIX -->
+                <div class="payment-section-box">
+                    <h3>Pagamento via PIX</h3>
                     
-                    <div class="form-group" style="margin-top: 15px; text-align: left;">
-                        <label>Pix Copia e Cola:</label>
-                        <input type="text" id="pix-copia-cola" readonly value="">
+                    <!-- Espaço reservado para QR Code (sem gerar imagem falsa) -->
+                    <div class="qrcode-placeholder" title="Espaço reservado para futuro QR Code PIX válido">
+                        <span>[ ESPAÇO RESERVADO PARA QR CODE PIX ]</span>
                     </div>
 
-                    <button type="button" onclick="copiarPixFakeSite()" class="btn-copy" id="btnCopyFake">
-                        <i class="fa-solid fa-copy"></i> Copiar Código Pix
-                    </button>
+                    <p style="font-size: 0.9rem; color: var(--aged-beige-dim); margin-bottom: 10px;">Chave PIX (Telefone):</p>
+                    <div class="pix-key-display" id="pix-key-text">+55 12 99136-2201</div>
                     
-                    <a id="btn-enviar-zap" href="#" target="_blank" class="btn-whatsapp-comprovante" style="display: none;">
-                        <i class="fab fa-whatsapp"></i> Já Paguei! Enviar Comprovante no Zap
+                    <div>
+                        <button id="btn-copy-pix" class="btn-gold">COPIAR CHAVE PIX</button>
+                    </div>
+                    <div id="toast" class="toast-message">Chave PIX copiada!</div>
+                </div>
+
+                <!-- SEÇÃO CARTÃO / GATEWAY FUTURO (SEM DADOS SENSÍVEIS) -->
+                <div class="payment-section-box">
+                    <h3>Cartão de Crédito / Débito</h3>
+                    <p class="gateway-notice">Para pagamentos via cartão de crédito, disponibilizaremos em breve integração segura com gateway certificado. Nenhum dado de cartão é armazenado ou solicitado diretamente neste site.</p>
+                    <button class="btn-dark" onclick="alert('Integração com gateway de pagamento seguro em breve.')">Pagar com Cartão (Em Breve)</button>
+                </div>
+
+                <!-- SEÇÃO AJUDA / WHATSAPP -->
+                <div class="payment-section-box" style="margin-bottom: 0;">
+                    <h3>Precisa de ajuda com o pagamento?</h3>
+                    <p style="color: var(--aged-beige); margin-bottom: 15px; font-size: 0.95rem;">Telefone: <strong>+55 12 99136-2201</strong></p>
+                    <a href="https://wa.me/5512991362201?text=Olá,%20estou%20na%20página%20de%20pagamento%20e%20preciso%20de%20auxílio." target="_blank" rel="noopener noreferrer" class="btn-gold">
+                        Falar pelo WhatsApp
                     </a>
                 </div>
+
+                <div class="modal-ornament bottom" style="margin-top: 30px;"></div>
+            </div>
+
+            <!-- BOTÃO VOLTAR PARA A LOJA -->
+            <div class="back-link-container">
+                <a href="index.html" class="back-link">← Voltar para a loja</a>
             </div>
         </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2026 Matheus Tabacão — Ambiente Protegido e Simulado. Guaratinguetá - SP.</p>
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>MATHEUS TABACÃO</h3>
+                <p class="footer-slogan">Tradição, qualidade e estilo desde sempre.</p>
+                <p class="warning-text">Conteúdo destinado exclusivamente a maiores de idade.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#produtos">Produtos</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato & Localização</h4>
+                <p>CEP: 12518-140</p>
+                <p>Telefone: +55 12 99136-2201</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Matheus Tabacão. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <script src="pagamento.js"></script>
+    <!-- SCRIPT DE CÓPIA DA CHAVE PIX -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnCopy = document.getElementById('btn-copy-pix');
+            const pixKeyText = document.getElementById('pix-key-text').innerText;
+            const toast = document.getElementById('toast');
+
+            btnCopy.addEventListener('click', () => {
+                // Utiliza a API moderna de Clipboard para copiar o texto
+                navigator.clipboard.writeText(pixKeyText).then(() => {
+                    toast.innerText = "Chave PIX copiada!";
+                    toast.classList.add('show');
+
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 3000);
+                }).catch(err => {
+                    // Fallback caso a API moderna não esteja disponível no contexto do navegador
+                    const textArea = document.createElement('textarea');
+                    textArea.value = pixKeyText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        toast.innerText = "Chave PIX copiada!";
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    } catch (e) {
+                        toast.innerText = "Erro ao copiar chave.";
+                        toast.classList.add('show');
+                    }
+                    document.body.removeChild(textArea);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
