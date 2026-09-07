@@ -1,188 +1,576 @@
 :root {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --primary-color: #d4af37; 
-    --text-color: #e0e0e0;
-    --text-muted: #aaaaaa;
-    --accent: #00c853;
-    --border-color: #2a2a2a;
+    --bg-wood-dark: #0f0a07;
+    --bg-wood-card: #1b120c;
+    --wood-border: #3d2618;
+    --gold-rustic: #d4af37;
+    --gold-hover: #f3c643;
+    --text-light: #e6dfd5;
+    --text-muted: #a89f91;
+    --whatsapp-green: #25d366;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    background-color: var(--bg-wood-dark);
+    color: var(--text-light);
+    background-image: radial-gradient(circle at 50% 50%, #17100b 0%, #0f0a07 100%);
 }
 
+/* Cabeçalho Rústico */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background-color: rgba(18, 18, 18, 0.95);
+    padding: 18px 6%;
+    background-color: rgba(15, 10, 7, 0.95);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--wood-border);
+    backdrop-filter: blur(5px);
 }
 
 .logo h1 {
-    font-size: 1.6rem;
-    color: var(--text-color);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .logo span {
-    color: var(--primary-color);
-    margin-left: 5px;
+    color: var(--gold-rustic);
+    margin-left: 4px;
 }
 
-.secure-badge {
+.subtitle-cep {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--gold-rustic);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #1da851;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+/* Hero Section Rústica */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(15,10,7,0.75), rgba(15,10,7,0.85)), url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 3px solid var(--wood-border);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    color: var(--gold-rustic);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: var(--gold-rustic);
+    color: #0f0a07;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 1px solid #b3922b;
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-hover);
+    transform: scale(1.03);
+}
+
+.btn-pix {
+    background-color: transparent;
+    color: var(--gold-rustic);
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid var(--gold-rustic);
+    transition: all 0.3s ease;
+}
+
+.btn-pix:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Seções Gerais */
+.section-container {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.dark-alt {
+    background-color: #130d0a;
+    border-top: 1px solid var(--wood-border);
+    border-bottom: 1px solid var(--wood-border);
+}
+
+.section-title h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.6rem;
+    color: var(--gold-rustic);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    font-size: 1.05rem;
+}
+
+/* Grid Cards Rústicos */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+}
+
+.rustic-card {
+    background-color: var(--bg-wood-card);
+    border: 2px solid var(--wood-border);
+    padding: 35px 25px;
+    border-radius: 6px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.rustic-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-rustic);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--gold-rustic);
+    color: #0f0a07;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.badge.importada {
+    background-color: #b85d0b;
+    color: #fff;
+}
+
+.rustic-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.desc {
     color: var(--text-muted);
     font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.flavors-list {
+    list-style: none;
+    margin-bottom: 20px;
+    border-top: 1px dashed var(--wood-border);
+    border-bottom: 1px dashed var(--wood-border);
+    padding: 12px 0;
+}
+
+.flavors-list li {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.secure-badge i {
-    color: var(--accent);
-}
-
-.checkout-container {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 500px;
-    border: 1px solid var(--border-color);
-    margin: 0 20px;
-}
-
-.checkout-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-    font-size: 1.8rem;
-}
-
-.step-section {
-    margin-bottom: 25px;
-}
-
-.step-section h3 {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.product-summary {
-    background-color: #252525;
-    padding: 15px 20px;
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.product-info h4 {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin-bottom: 3px;
-}
-
-.product-info p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-.product-price {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+.flavors-list li::before {
+    content: "•";
+    color: var(--gold-rustic);
     font-weight: bold;
 }
 
-.form-group {
+.price-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    color: var(--gold-rustic);
     margin-bottom: 15px;
+}
+
+.price-tag small {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-item-zap {
+    background-color: rgba(37, 211, 102, 0.1);
+    color: var(--whatsapp-green);
+    border: 1px solid var(--whatsapp-green);
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-item-zap:hover {
+    background-color: var(--whatsapp-green);
+    color: #fff;
+}
+
+/* Grid Marcas Famosas */
+.grid-brands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.brand-box {
+    background-color: var(--bg-wood-card);
+    border: 2px solid var(--wood-border);
+    padding: 40px 30px;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.brand-box:hover {
+    border-color: var(--gold-rustic);
+    transform: translateY(-5px);
+}
+
+.brand-icon {
+    font-size: 2.5rem;
+    color: var(--gold-rustic);
+    margin-bottom: 20px;
+}
+
+.brand-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.brand-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Checkout Compacto Dark Mode */
+.checkout-section {
+    background: linear-gradient(135deg, #1b120c 0%, #110c08 100%);
+    border-top: 2px solid var(--wood-border);
+    border-bottom: 2px solid var(--wood-border);
+}
+
+.checkout-container-box {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: var(--bg-wood-card);
+    border: 2px solid var(--wood-border);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    text-align: left;
+}
+
+.product-summary {
+    background-color: #251811;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--gold-rustic);
+}
+
+.product-summary h4 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-summary p {
+    color: var(--gold-rustic);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-container-box h3 {
+    font-size: 13px;
+    color: var(--gold-rustic);
+    margin-bottom: 8px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 12px;
 }
 
 label {
     display: block;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
 input {
     width: 100%;
-    padding: 12px;
-    background-color: #2a2a2a;
-    border: 1px solid var(--border-color);
+    padding: 11px;
+    background-color: #120a07;
+    border: 1px solid var(--wood-border);
     border-radius: 6px;
-    color: var(--text-color);
-    font-size: 0.95rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.3s;
 }
 
 input:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    border-color: var(--gold-rustic);
+}
+
+.pix-box-info {
+    background-color: #120a07;
+    border: 1px dashed var(--wood-border);
+    padding: 12px;
+    border-radius: 6px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.pix-title {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.pix-key-display {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: var(--gold-rustic);
+    letter-spacing: 0.5px;
+}
+
+.pix-owner {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 4px;
 }
 
 .btn-pay {
     width: 100%;
     padding: 14px;
-    background-color: var(--accent);
+    background-color: var(--whatsapp-green);
     color: #ffffff;
     border: none;
     border-radius: 6px;
-    font-size: 1.1rem;
+    font-size: 15px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .btn-pay:hover {
-    background-color: #00b048;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
+    background-color: #1ebc57;
 }
 
-footer {
-    margin-top: 40px;
+.btn-pay:active {
+    transform: scale(0.98);
+}
+
+/* Contato Rústico / Localização */
+.contact-box-rustic {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    background-color: var(--bg-wood-card);
+    border: 2px solid var(--wood-border);
+    padding: 25px 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--gold-rustic);
+}
+
+.contact-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.contact-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Botão Flutuante WhatsApp */
+.float-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: #FFF;
+    border-radius: 50px;
     text-align: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.float-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* Rodapé Rústico */
+footer {
+    background-color: #080503;
+    text-align: center;
+    padding: 30px;
     color: var(--text-muted);
     font-size: 0.85rem;
+    border-top: 2px solid var(--wood-border);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 15px 5%;
-    }
+    nav { display: none; }
+    .hero-content h2 { font-size: 2.2rem; }
+    .contact-item { flex-direction: column; text-align: center; }
 }
