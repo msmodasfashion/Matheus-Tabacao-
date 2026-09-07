@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Compra - Catálogo e Pagamento</title>
+    <title>Finalização de Pedido | Checkout</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <header>
+        <div class="logo">
+            <h1>Checkout<span>Secure</span></h1>
+        </div>
+        <div class="secure-badge">
+            <i class="fa-solid fa-shield-halved"></i> Ambiente Seguro
+        </div>
+    </header>
 
     <div class="checkout-container">
         <h2>Finalizar Pedido</h2>
 
-        <!-- 1º: CATÁLOGO / RESUMO DO PRODUTO -->
-        <div class="product-summary">
-            <h3>1. Produto Selecionado</h3>
-            <h4 id="product-name">Produto Exemplo</h4>
-            <p id="product-price">R$ 99,00</p>
-        </div>
-
         <form id="checkout-form">
-            <!-- 2º: ENDEREÇO (CEP primeiro para puxar a API automaticamente) -->
-            <div class="address-section">
-                <h3>2. Endereço de Entrega</h3>
+            
+            <!-- 1º: CATÁLOGO / PRODUTO SELECIONADO -->
+            <div class="step-section">
+                <h3><i class="fa-solid fa-box"></i> 1. Produto Selecionado</h3>
+                <div class="product-summary">
+                    <div class="product-info">
+                        <h4 id="product-name">Kit Essencial Premium</h4>
+                        <p>Edição Limitada</p>
+                    </div>
+                    <div class="product-price" id="product-price">R$ 99,00</div>
+                </div>
+            </div>
+
+            <!-- 2º: ENDEREÇO DE ENTREGA (Com CEP automático) -->
+            <div class="step-section">
+                <h3><i class="fa-solid fa-location-dot"></i> 2. Endereço de Entrega</h3>
                 
                 <div class="form-group">
-                    <label for="cep">CEP</label>
-                    <input type="text" id="cep" placeholder="00000-000" required>
+                    <label for="cep">CEP (Preenchimento Automático)</label>
+                    <input type="text" id="cep" placeholder="Digite seu CEP (ex: 12500-000)" maxlength="9" required>
                 </div>
 
                 <div class="form-group">
@@ -39,9 +55,9 @@
                 </div>
             </div>
 
-            <!-- Dados Pessoais do Cliente (Nome e CPF) -->
-            <div class="personal-section">
-                <h3>Dados Pessoais</h3>
+            <!-- DADOS PESSOAIS -->
+            <div class="step-section">
+                <h3><i class="fa-solid fa-user"></i> Dados Pessoais</h3>
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" placeholder="Digite seu nome completo" required>
@@ -53,10 +69,20 @@
                 </div>
             </div>
 
-            <!-- 3º: PAGAMENTO (Botão final de ir para o pagamento) -->
-            <button type="submit" class="btn-pay">3. Ir para o Pagamento</button>
+            <!-- 3º: PAGAMENTO (Redirecionamento) -->
+            <div class="step-section">
+                <h3><i class="fa-solid fa-credit-card"></i> 3. Pagamento</h3>
+                <button type="submit" class="btn-pay">
+                    <i class="fa-solid fa-lock"></i> Ir para o Pagamento
+                </button>
+            </div>
+
         </form>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Checkout System. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
