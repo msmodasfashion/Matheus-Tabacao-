@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalização de Pedido | Checkout</title>
+    <title>Loja Oficial | Finalizar Pedido</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,10 +11,10 @@
 
     <header>
         <div class="logo">
-            <h1>Checkout<span>Secure</span></h1>
+            <h1>Sua<span>Loja</span></h1>
         </div>
         <div class="secure-badge">
-            <i class="fa-solid fa-shield-halved"></i> Ambiente Seguro
+            <i class="fa-solid fa-shield-halved"></i> Checkout Seguro BB Pay
         </div>
     </header>
 
@@ -23,7 +23,7 @@
 
         <form id="checkout-form">
             
-            <!-- 1º: CATÁLOGO / PRODUTO SELECIONADO -->
+            <!-- 1º PASSO: CATÁLOGO / PRODUTO SELECIONADO -->
             <div class="step-section">
                 <h3><i class="fa-solid fa-box"></i> 1. Produto Selecionado</h3>
                 <div class="product-summary">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <!-- 2º: ENDEREÇO DE ENTREGA (Com CEP automático) -->
+            <!-- 2º PASSO: ENDEREÇO DE ENTREGA (Com busca automática de CEP) -->
             <div class="step-section">
                 <h3><i class="fa-solid fa-location-dot"></i> 2. Endereço de Entrega</h3>
                 
@@ -57,7 +57,7 @@
 
             <!-- DADOS PESSOAIS -->
             <div class="step-section">
-                <h3><i class="fa-solid fa-user"></i> Dados Pessoais</h3>
+                <h3><i class="fa-solid fa-user"></i> Seus Dados</h3>
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" placeholder="Digite seu nome completo" required>
@@ -69,11 +69,11 @@
                 </div>
             </div>
 
-            <!-- 3º: PAGAMENTO (Redirecionamento) -->
+            <!-- 3º PASSO: PAGAMENTO (Redirecionamento para o Banco do Brasil) -->
             <div class="step-section">
                 <h3><i class="fa-solid fa-credit-card"></i> 3. Pagamento</h3>
                 <button type="submit" class="btn-pay">
-                    <i class="fa-solid fa-lock"></i> Ir para o Pagamento
+                    <i class="fa-solid fa-lock"></i> Ir para o Pagamento (Banco do Brasil)
                 </button>
             </div>
 
@@ -81,7 +81,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Checkout System. Todos os direitos reservados.</p>
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
