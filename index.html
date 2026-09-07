@@ -4,175 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matheus Tabacão | Tradição e Elegância</title>
-    <!-- Google Fonts: Playfair Display para títulos vintage e Inter/Lora para textos -->
+    <!-- Google Fonts para tipografia serifada clássica -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- MODAL DE VERIFICAÇÃO DE IDADE -->
-    <div id="age-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-ornament"></div>
-            <h2>MATHEUS TABACÃO</h2>
-            <p>Este estabelecimento comercializa produtos destinados exclusivamente a maiores de 18 anos.</p>
-            <div class="modal-buttons">
-                <button id="btn-over-18" class="btn-primary">Tenho 18 anos ou mais</button>
-                <button id="btn-under-18" class="btn-secondary">Sou menor de 18 anos</button>
+    <!-- 1. TELA DE ENTRADA / AVISO DE MAIORIDADE -->
+    <div id="age-modal" class="age-modal-overlay">
+        <div class="age-modal-content">
+            <div class="modal-ornament top"></div>
+            <h2>Bem-vindo ao Matheus Tabacão</h2>
+            <p>Este site apresenta produtos destinados exclusivamente a maiores de idade.</p>
+            <div class="age-modal-buttons">
+                <button id="btn-adult" class="btn-gold">Sou maior de idade</button>
+                <button id="btn-exit" class="btn-dark">Voltar</button>
             </div>
+            <div class="modal-ornament bottom"></div>
         </div>
     </div>
 
-    <!-- CABEÇALHO -->
-    <header id="header">
+    <!-- 2. HEADER -->
+    <header id="header" class="header">
         <div class="container header-container">
-            <a href="#" class="logo">MATHEUS TABACÃO</a>
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#localizacao">Localização</a></li>
-                    <li><a href="#pagamento">Pagamento</a></li>
+            <a href="#inicio" class="logo">MATHEUS TABACÃO</a>
+            
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#produtos" class="nav-link">Produtos</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#localizacao" class="nav-link">Localização</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
-            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." target="_blank" class="btn-header">Contato</a>
-            <div class="menu-toggle" id="menu-toggle">
+
+            <button class="hamburger" id="hamburger" aria-label="Menu Mobile">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- 3. HERO -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="fade-in">MATHEUS TABACÃO</h1>
-            <p class="fade-in">Tradição, qualidade e atendimento.</p>
-            <a href="#produtos" class="btn-primary fade-in">CONHEÇA NOSSOS PRODUTOS</a>
+        <div class="container hero-content animate-on-scroll">
+            <span class="hero-subtitle-top">ESTABELECIMENTO TRADICIONAL</span>
+            <h1>MATHEUS TABACÃO</h1>
+            <p>Uma experiência clássica, elegante e tradicional.</p>
+            <a href="#sobre" class="btn-gold hero-btn">Conheça nossa história</a>
         </div>
+        <div class="hero-vignette"></div>
     </section>
 
-    <!-- PRODUTOS -->
-    <section id="produtos" class="section products-section">
+    <!-- 4. SEÇÃO DE PRODUTOS -->
+    <section id="produtos" class="products-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Catálogo Selecionado</h2>
-                <p>Marcas de referência e produtos tradicionais</p>
-                <span class="disclaimer-note">* Produtos, preços e disponibilidade devem ser confirmados diretamente com a loja.</span>
+            <div class="section-header animate-on-scroll">
+                <h2>Nossos Catálogos & Categorias</h2>
+                <p>Explore nossa seleção dedicada aos apreciadores da alta tradição</p>
+                <div class="gold-divider"></div>
             </div>
 
             <!-- Filtros de Categoria -->
-            <div class="product-filters">
+            <div class="product-filters animate-on-scroll">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="charutos">Charutos</button>
                 <button class="filter-btn" data-filter="tabacos">Tabacos</button>
                 <button class="filter-btn" data-filter="acessorios">Acessórios</button>
                 <button class="filter-btn" data-filter="isqueiros">Isqueiros</button>
-                <button class="filter-btn" data-filter="papelaria">Papelaria</button>
+                <button class="filter-btn" data-filter="fumantes">Artigos para fumantes</button>
             </div>
 
             <!-- Grid de Produtos -->
             <div class="products-grid">
-
-                <!-- Card 1: Charutos -->
-                <div class="product-card" data-category="charutos">
-                    <div class="product-img-wrapper">
-                        <!-- Substitua o atributo src pela imagem real do produto -->
-                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Charuto Davidoff">
-                        <span class="product-brand">Davidoff</span>
+                
+                <!-- Card 1 -->
+                <div class="product-card animate-on-scroll" data-category="charutos">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Charutos Premium">
+                        <span class="product-badge">Charutos</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Charuto Selecionado</h3>
-                        <p class="product-desc">Seleção especial de charutos importados com notas amadeiradas e excelente maturação.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20do%20Charuto%20Davidoff." target="_blank" class="btn-card">Consultar</a>
-                        </div>
+                    <div class="card-body">
+                        <h3>Seleção de Charutos Finos</h3>
+                        <p class="product-desc">Folhas selecionadas de procedência consagrada para uma queima uniforme e aromática.</p>
+                        <span class="product-brand">Exemplo: Marcas Clássicas de Referência</span>
+                        <button class="btn-details" onclick="openProductModal('Seleção de Charutos Finos', 'Folhas selecionadas de procedência consagrada para uma queima uniforme e aromática, proporcionando notas amadeiradas e complexas.', 'Marcas Clássicas de Referência')">Ver detalhes</button>
                     </div>
                 </div>
 
-                <!-- Card 2: Tabacos -->
-                <div class="product-card" data-category="tabacos">
-                    <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1516762689617-e16fbcef4ac9?auto=format&fit=crop&w=600&q=80" alt="Tabaco Tradicional">
-                        <span class="product-brand">Tabacaria</span>
+                <!-- Card 2 -->
+                <div class="product-card animate-on-scroll" data-category="tabacos">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Tabacos Artesanais">
+                        <span class="product-badge">Tabacos</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Tabaco Artesanal / Premium</h3>
-                        <p class="product-desc">Misturas selecionadas para apreciadores de cortes refinados e aromas clássicos.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20do%20Tabaco%20Premium." target="_blank" class="btn-card">Consultar</a>
-                        </div>
+                    <div class="card-body">
+                        <h3>Tabacos de Cachimbo</h3>
+                        <p class="product-desc">Misturas tradicionais encorpadas, aromáticas e com curas artesanais refinadas.</p>
+                        <span class="product-brand">Exemplo: Linhas Tradicionais</span>
+                        <button class="btn-details" onclick="openProductModal('Tabacos de Cachimbo', 'Misturas tradicionais encorpadas, aromáticas e com curas artesanais refinadas para momentos de contemplação.', 'Linhas Tradicionais')">Ver detalhes</button>
                     </div>
                 </div>
 
-                <!-- Card 3: Isqueiros -->
-                <div class="product-card" data-category="isqueiros">
-                    <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Isqueiro Zippo">
-                        <span class="product-brand">Zippo / BIC</span>
+                <!-- Card 3 -->
+                <div class="product-card animate-on-scroll" data-category="acessorios">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Cortadores e Guilhotinas">
+                        <span class="product-badge">Acessórios</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Isqueiros Clássicos e Recarregáveis</h3>
-                        <p class="product-desc">Durabilidade, acabamento metálico refinado e confiabilidade atemporal.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20Isqueiros." target="_blank" class="btn-card">Consultar</a>
-                        </div>
+                    <div class="card-body">
+                        <h3>Cortadores e Guilhotinas</h3>
+                        <p class="product-desc">Utensílios de alta precisão em aço inoxidável e acabamentos clássicos em madeira ou ouro velho.</p>
+                        <span class="product-brand">Exemplo: Padrão Internacional</span>
+                        <button class="btn-details" onclick="openProductModal('Cortadores e Guilhotinas', 'Utensílios de alta precisão em aço inoxidável e acabamentos clássicos garantindo um corte limpo e perfeito.', 'Padrão Internacional')">Ver detalhes</button>
                     </div>
                 </div>
 
-                <!-- Card 4: Acessórios -->
-                <div class="product-card" data-category="acessorios">
-                    <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Acessório Stanley">
-                        <span class="product-brand">Stanley</span>
+                <!-- Card 4 -->
+                <div class="product-card animate-on-scroll" data-category="isqueiros">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Isqueiros e Maçaricos">
+                        <span class="product-badge">Isqueiros</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Copos e Térmicos Stanley</h3>
-                        <p class="product-desc">Mantém sua bebida na temperatura ideal durante momentos de contemplação e descanso.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20produtos%20Stanley." target="_blank" class="btn-card">Consultar</a>
-                        </div>
+                    <div class="card-body">
+                        <h3>Isqueiros e Maçaricos</h3>
+                        <p class="product-desc">Chamas resistentes ao vento e design robusto com empunhadura ergonômica e elegante.</p>
+                        <span class="product-brand">Exemplo: Modelos de Colecionador</span>
+                        <button class="btn-details" onclick="openProductModal('Isqueiros e Maçaricos', 'Chamas resistentes ao vento e design robusto com empunhadura ergonômica e acabamento requintado.', 'Modelos de Colecionador')">Ver detalhes</button>
                     </div>
                 </div>
 
-                <!-- Card 5: Papelaria -->
-                <div class="product-card" data-category="papelaria">
-                    <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Papelaria RAW e OCB">
-                        <span class="product-brand">RAW / OCB</span>
+                <!-- Card 5 -->
+                <div class="product-card animate-on-scroll" data-category="fumantes">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Artigos para Fumantes">
+                        <span class="product-badge">Artigos para Fumantes</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Papelaria para Fumantes</h3>
-                        <p class="product-desc">Variedade em sedas de alta qualidade, piteiras e filtros das marcas mais conceituadas do mercado.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20da%20Papelaria." target="_blank" class="btn-card">Consultar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Acessórios / Cortadores -->
-                <div class="product-card" data-category="acessorios">
-                    <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Acessórios para Charutos">
-                        <span class="product-brand">Variedados</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Cortadores e Cinzeiros</h3>
-                        <p class="product-desc">Utensílios robustos e elegantes para o ritual completo com acabamento clássico.</p>
-                        <div class="product-footer">
-                            <span class="product-price">Consulte o valor</span>
-                            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20e%20preço%20dos%20acessórios." target="_blank" class="btn-card">Consultar</a>
-                        </div>
+                    <div class="card-body">
+                        <h3>Cinzeiros e Porta-Charutos</h3>
+                        <p class="product-desc">Peças robustas em cerâmica pesada, metal envelhecido e detalhes em madeira nobre.</p>
+                        <span class="product-brand">Exemplo: Estética Vintage</span>
+                        <button class="btn-details" onclick="openProductModal('Cinzeiros e Porta-Charutos', 'Peças robustas em cerâmica pesada, metal envelhecido e detalhes em madeira nobre projetadas para durar gerações.', 'Estética Vintage')">Ver detalhes</button>
                     </div>
                 </div>
 
@@ -180,112 +157,105 @@
         </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section about-section">
+    <!-- 5. SOBRE A LOJA -->
+    <section id="sobre" class="about-section">
         <div class="container about-container">
-            <div class="about-text">
-                <h2>Sobre a Matheus Tabacão</h2>
-                <p>Fundada com a essência das antigas tabacarias tradicionais, a <strong>Matheus Tabacão</strong> preza pela excelência em cada detalhe. Nosso ambiente foi pensado para proporcionar uma experiência acolhedora, resgatando o charme clássico, o atendimento atencioso e a curadoria rigorosa de produtos.</p>
-                <p>Trabalhamos com marcas consagradas mundialmente, oferecendo um portfólio diversificado que atende aos apreciadores mais exigentes. Valorizamos a cordialidade, o respeito e a tradição de um bom atendimento de balcão.</p>
+            <div class="about-text animate-on-scroll">
+                <span class="section-subtitle">Nossa Essência</span>
+                <h2>A tradição do Matheus Tabacão</h2>
+                <div class="gold-divider-left"></div>
+                <p>No <strong>Matheus Tabacão</strong>, cada detalhe foi concebido para resgatar a atmosfera acolhedora e refinada das antigas tabacarias tradicionais. Prezamos pelo atendimento consultivo, respeitando o tempo e o gosto de cada apreciador.</p>
+                <p>Nosso ambiente clássico e amadeirado abriga acessórios selecionados e uma curadoria voltada ao bem-estar e à contemplação de momentos únicos. Valorizamos a sofisticação, a qualidade atemporal e a arte de receber bem.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">❦</span>
+                        <span>Atendimento Consultivo</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">❦</span>
+                        <span>Ambiente Clássico e Acolhedor</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">❦</span>
+                        <span>Acessórios de Alto Padrão</span>
+                    </div>
+                </div>
             </div>
-            <div class="about-image">
+            <div class="about-image animate-on-scroll">
                 <div class="image-frame">
-                    <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=800&q=80" alt="Interior Clássico Tabacaria">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Interior Tabacaria Tradicional">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LOCALIZAÇÃO -->
-    <section id="localizacao" class="section location-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Onde Estamos</h2>
-                <p>Venha nos fazer uma visita</p>
+    <!-- 6. LOCALIZAÇÃO -->
+    <section id="localizacao" class="location-section">
+        <div class="container animate-on-scroll">
+            <div class="section-header">
+                <h2>Visite o Matheus Tabacão</h2>
+                <p>Venha conhecer nosso espaço e desfrutar de uma atmosfera única</p>
+                <div class="gold-divider"></div>
             </div>
-            <div class="location-content">
-                <div class="location-card">
-                    <div class="location-details">
-                        <h3>Matheus Tabacão</h3>
-                        <p id="store-address"><strong>Endereço:</strong> [Insira o endereço completo da loja aqui]</p>
-                        <p><strong>CEP:</strong> 12518-140</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=CEP+12518-140" target="_blank" class="btn-primary">Como chegar</a>
-                    </div>
-                    <!-- Área reservada para futuro Google Maps -->
-                    <div class="map-placeholder">
-                        <div class="map-notice">
-                            <span>Mapa interativo (Google Maps) pronto para inserção futura</span>
-                        </div>
-                    </div>
+            
+            <div class="location-box">
+                <div class="location-info">
+                    <h3>Localização Oficial</h3>
+                    <p class="cep-display">CEP: <strong>12518-140</strong></p>
+                    <p class="location-note">Para sua comodidade, utilize o botão abaixo para abrir a rota em sua ferramenta de mapas de preferência.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=12518-140" target="_blank" rel="noopener noreferrer" class="btn-gold">
+                        Ver localização
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PAGAMENTO -->
-    <section id="pagamento" class="section payment-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Formas de Pagamento</h2>
-                <p>Facilidade e segurança na sua compra</p>
+    <!-- 7. CONTATO -->
+    <section id="contato" class="contact-section">
+        <div class="container animate-on-scroll">
+            <div class="section-header">
+                <h2>Entre em contato</h2>
+                <p>Estamos à disposição para tirar dúvidas e prestar um atendimento personalizado</p>
+                <div class="gold-divider"></div>
             </div>
-            <div class="payment-grid">
-                <div class="payment-card">
-                    <div class="payment-icon">💳</div>
-                    <h3>Cartões de Crédito / Débito</h3>
-                    <p>Aceitamos as principais bandeiras do mercado em transações presenciais ou online.</p>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-icon">⚡</div>
-                    <h3>PIX</h3>
-                    <p>Pagamento instantâneo, prático e seguro com aprovação imediata.</p>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-icon">💵</div>
-                    <h3>Dinheiro em Espécie</h3>
-                    <p>Atendimento tradicional com troco e facilidade no balcão.</p>
+
+            <div class="contact-box">
+                <div class="contact-card-inner">
+                    <span class="contact-icon">📱</span>
+                    <h3>Atendimento via WhatsApp</h3>
+                    <p class="phone-number">+55 12 99136-2201</p>
+                    <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20do%20Matheus%20Tabacão." target="_blank" rel="noopener noreferrer" class="btn-gold">
+                        Falar pelo WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTATO / WHATSAPP -->
-    <section class="section contact-cta-section">
-        <div class="container text-center">
-            <h2>Atendimento Personalizado</h2>
-            <p>Dúvidas sobre produtos, disponibilidade ou encomendas? Fale diretamente conosco.</p>
-            <a href="https://wa.me/5512991362201?text=Olá,%20gostaria%20de%20atendimento." target="_blank" class="btn-whatsapp">
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Falar pelo WhatsApp
-            </a>
-        </div>
-    </section>
-
-    <!-- RODAPÉ -->
+    <!-- 8. RODAPÉ -->
     <footer class="footer">
-        <div class="container footer-container">
+        <div class="container footer-content">
             <div class="footer-col">
                 <h3>MATHEUS TABACÃO</h3>
-                <p>Tradição, elegância e atendimento de excelência.</p>
+                <p class="footer-slogan">Tradição, qualidade e estilo desde sempre.</p>
+                <p class="warning-text">Conteúdo destinado exclusivamente a maiores de idade.</p>
             </div>
+
             <div class="footer-col">
-                <h4>Links Rápidos</h4>
-                <ul>
+                <h4>Navegação</h4>
+                <ul class="footer-links">
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#produtos">Produtos</a></li>
                     <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#localizacao">Localização</a></li>
-                    <li><a href="#pagamento">Pagamento</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
-                <h4>Contato & Local</h4>
-                <p><strong>Telefone / WhatsApp:</strong> (12) 99136-2201</p>
-                <p><strong>CEP:</strong> 12518-140</p>
-            </div>
-            <div class="footer-col">
-                <h4>Aviso Legal</h4>
-                <p class="footer-age-warning">Estabelecimento restrito a maiores de 18 anos. Aprecie com moderação.</p>
+                <h4>Contato & Localização</h4>
+                <p>CEP: 12518-140</p>
+                <p>Telefone: +55 12 99136-2201</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -293,6 +263,23 @@
         </div>
     </footer>
 
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+    <!-- Modal de Detalhes do Produto -->
+    <div id="product-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="modal-ornament top"></div>
+            <h3 id="modal-title">Título do Produto</h3>
+            <span id="modal-brand" class="modal-brand-tag">Marca</span>
+            <p id="modal-description">Descrição detalhada do produto.</p>
+            <p class="modal-disclaimer"><em>* Consulte nossa equipe via WhatsApp para informações sobre disponibilidade e portfólio completo.</em></p>
+            <div class="modal-ornament bottom"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
